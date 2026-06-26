@@ -1,6 +1,9 @@
 # ForzaSkillFarmer
 
-An AutoHotkey v2 macro that automatically farms skill points in **Forza Horizon 6** by looping a straight-line race on repeat. Enter your current skill point count and it auto-calculates exactly how many runs are needed to reach the 999 cap — then stops on its own.
+<img src="banner.jpg" alt="banner" width="500">
+
+
+*An AutoHotkey v2 macro that automatically farms skill points in **Forza Horizon 6** by looping a straight-line race on repeat. Enter your current skill point count and it auto-calculates exactly how many runs are needed to reach the 999 cap — then stops on its own.*
 
 ---
 
