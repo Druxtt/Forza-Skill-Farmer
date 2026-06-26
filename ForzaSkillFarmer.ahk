@@ -17,7 +17,8 @@
 ; 1080p pixel coordinates are NOT calibrated yet — run the
 ; game at 1080p, use F8 to find your pixel values, then fill
 ; them into the 1080p block below.
-PRESET := "1440p"
+PRESET   := "1440p"   ; "1440p" or "1080p"
+KEYBOARD := "azerty"  ; "azerty" or "qwerty"
 
 ; ── Preset definitions ────────────────────────────────────
 ;
@@ -64,6 +65,9 @@ if (PRESET = "1440p") {
     MsgBox "Unknown preset '" PRESET "'. Set PRESET to `"1440p`" or `"1080p`".", "ForzaSkillFarmer"
     ExitApp
 }
+
+; ── Keyboard layout ──────────────────────────────────────
+ACCEL_KEY := (KEYBOARD = "qwerty") ? "w" : "z"
 
 ; ── Window snap ───────────────────────────────────────────
 SnapGameWindow() {
@@ -207,7 +211,7 @@ F8:: {
 F3:: {
     global running, statusLabel, elapsedLabel, etaLabel, runsLabel, pointsLabel
     running := false
-    Send "{z up}"
+    Send "{" ACCEL_KEY " up}"
     statusLabel.Value := "Stopped"
     statusLabel.SetFont("cFF6666")
     elapsedLabel.Value := "—"
@@ -273,9 +277,9 @@ F4:: {
         Send "{Enter}"
         Sleep 800
 
-        Send "{z down}"
+        Send "{" ACCEL_KEY " down}"
         WaitForPixel(PIX_SCORE_X, PIX_SCORE_Y, PIX_SCORE_C, 30000)
-        Send "{z up}"
+        Send "{" ACCEL_KEY " up}"
 
         Sleep 500
         Send "x"
