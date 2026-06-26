@@ -43,13 +43,16 @@ Configure Forza before running the script:
 - **Display mode**: Windowed (not Borderless, not Fullscreen)
 - **Resolution**: 2560×1440 for 1440p, or 1920×1080 for 1080p
 
-### 2. Set your resolution preset
+### 2. Configure the script
 
-Open `ForzaSkillFarmer.ahk` in a text editor and set the preset at the top:
+Open `ForzaSkillFarmer.ahk` in a text editor and set the two constants at the top:
 
 ```ahk
-PRESET := "1440p"   ; or "1080p"
+PRESET   := "1440p"   ; "1440p" or "1080p"
+KEYBOARD := "azerty"  ; "azerty" or "qwerty"
 ```
+
+`PRESET` controls window placement and pixel trigger coordinates. `KEYBOARD` controls which key is held to accelerate — `z` for AZERTY, `w` for QWERTY.
 
 On launch, the script will snap both the game window and its own GUI panel to fixed hardcoded positions. This keeps pixel coordinates consistent across every session — no manual positioning needed.
 
