@@ -7,7 +7,10 @@ An AutoHotkey v2 macro that automatically farms skill points in **Forza Horizon 
 ## The race
 
 Share code: **100 405 213**
-Based on this video: https://www.youtube.com/watch?v=MNCP2xFXDTs watch carefully before using the script, only working with same cars, preset, and difficulty settings
+
+Based on this video: https://www.youtube.com/watch?v=MNCP2xFXDTs
+
+watch carefully before using the script, only working with same cars, preset, and difficulty settings
 
 A straight-line sprint that takes roughly 30–35 seconds to complete. No turns, no obstacles — just hold the accelerator. From 0 skill points, running this race non-stop fills the cap in approximately **1h30**.
 
