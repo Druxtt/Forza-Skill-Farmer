@@ -94,6 +94,8 @@ You can leave your PC unattended. When the target is reached, the loop stops and
 
 **To stop mid-session**, press F3. The script will release the accelerator and halt cleanly at the end of the current step — it will not start another run.
 
+**If the game crashes**, the script detects it automatically — both between runs and mid-race inside any waiting step. It stops the loop, sets the status to "Game crashed!", and shows a popup. It will not keep counting phantom laps against a dead process.
+
 ---
 
 ## Pixel calibration

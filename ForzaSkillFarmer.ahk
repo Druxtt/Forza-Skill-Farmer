@@ -180,8 +180,12 @@ WaitForPixel(x, y, targetColor, timeoutMs := 15000) {
     global running
     deadline := A_TickCount + timeoutMs
     Loop {
-        if !running          ; bail out immediately if F3 was pressed
+        if !running                                  ; F3 was pressed
             return false
+        if !ProcessExist("forzahorizon6.exe") {      ; game crashed mid-race
+            running := false
+            return false
+        }
         if (PixelGetColor(x, y, "RGB") = targetColor)
             return true
         if (A_TickCount > deadline)
@@ -199,6 +203,21 @@ UpdateStats() {
     statusLabel.SetFont("cAAFF88")
     runsLabel.Value   := runCount " / " targetRuns
     pointsLabel.Value := (startPoints + totalPoints) " / " MAX_POINTS
+}
+
+; ── Process check ────────────────────────────────────────
+CheckGameRunning() {
+    global running, statusLabel, elapsedLabel, etaLabel
+    if !ProcessExist("forzahorizon6.exe") {
+        running := false
+        statusLabel.Value := "Game crashed!"
+        statusLabel.SetFont("cFF6666")
+        elapsedLabel.Value := "—"
+        etaLabel.Value     := "—"
+        MsgBox "Forza Horizon 6 is no longer running — the game may have crashed.`n`nAFK session has been stopped.", "ForzaSkillFarmer"
+        return false
+    }
+    return true
 }
 
 ; ── Hotkeys ───────────────────────────────────────────────
@@ -260,6 +279,9 @@ F4:: {
 
     Loop {
         if !running
+            break
+
+        if !CheckGameRunning()
             break
 
         if (runCount >= targetRuns) {
